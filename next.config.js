@@ -4,7 +4,7 @@ const moduleExports = {
   reactStrictMode: true,
   swcMinify: true,
   sentry: {
-    hideSourceMaps: true,
+    hideSourceMaps: false,
   },
 };
 
