@@ -4,12 +4,12 @@ const moduleExports = {
   reactStrictMode: true,
   swcMinify: true,
   sentry: {
-    hideSourceMaps: false,
+    hideSourceMaps: true,
   },
 };
 
 const sentryWebpackPluginOptions = {
-  silent: false, // Suppresses all logs
+  silent: true, // Suppresses all logs
 };
 
 module.exports = withSentryConfig(moduleExports, sentryWebpackPluginOptions);
