@@ -10,7 +10,13 @@ const Auth = () => {
         email: "test@example.com",
         password: "test1234!",
       }),
-    });
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return <button onClick={login}>Login</button>;
