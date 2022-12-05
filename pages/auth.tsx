@@ -36,6 +36,13 @@ const Auth = () => {
       >
         Another Error
       </button>
+      <button
+        onClick={() => {
+          throw new Error("Another Another Error");
+        }}
+      >
+        Another Another Error
+      </button>
     </div>
   );
 };

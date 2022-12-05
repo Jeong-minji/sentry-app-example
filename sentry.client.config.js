@@ -4,7 +4,8 @@ import axios from "axios";
 const isProduction = process.env.NODE_ENV === "production";
 
 Sentry.init({
-  dsn: isProduction ? process.env.NEXT_PUBLIC_SENTRY_DSN_KEY : "",
+  // dsn: isProduction ? process.env.NEXT_PUBLIC_SENTRY_DSN_KEY : "",
+  dsn: process.env.NEXT_PUBLIC_SENTRY_DSN_KEY,
   environment: process.env.NODE_ENV,
   tracesSampleRate: 1.0,
   beforeSend: (event, hint) => sendErrorMessage(event, hint),
@@ -12,6 +13,8 @@ Sentry.init({
 
 const sendErrorMessage = (event, hint) => {
   let errorMsg = "Sentry error hook";
+  console.log(event);
+  console.log(hint);
 
   const hintMsg = hint.originalException || hint.syntheticException;
   errorMsg = `[Error]: \n
