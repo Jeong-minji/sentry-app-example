@@ -22,6 +22,13 @@ const Auth = () => {
   return (
     <div>
       <button onClick={login}>Login</button>
+      <button
+        onClick={() => {
+          throw new Error("Provided Error");
+        }}
+      >
+        Provide Error
+      </button>
     </div>
   );
 };
