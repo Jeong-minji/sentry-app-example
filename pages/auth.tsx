@@ -19,7 +19,13 @@ const Auth = () => {
       });
   };
 
-  return <button onClick={login}>Login</button>;
+  return (
+    <div>
+      <button onClick={login}>Login</button>
+      <br />
+      <input type="radio" checked={true} />
+    </div>
+  );
 };
 
 export default Auth;
