@@ -1,4 +1,7 @@
+import { useEffect, useState } from "react";
+
 const Auth = () => {
+  const [count, setCount] = useState(0);
   const login = () => {
     fetch(`${process.env.NEXT_PUBLIC_BACKEND_DOMAIN}/auth/login/local`, {
       method: "POST",
@@ -19,11 +22,14 @@ const Auth = () => {
       });
   };
 
+  useEffect(() => {
+    setCount((count) => count + 1);
+  });
+
   return (
     <div>
       <button onClick={login}>Login</button>
-      <br />
-      <input type="radio" checked={true} />
+      <span>{count}개</span>
     </div>
   );
 };
