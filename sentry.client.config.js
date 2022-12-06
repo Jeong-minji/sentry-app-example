@@ -1,10 +1,8 @@
 import * as Sentry from "@sentry/nextjs";
 import axios from "axios";
 
-const isProduction = process.env.NODE_ENV === "production";
-
 Sentry.init({
-  dsn: isProduction ? process.env.NEXT_PUBLIC_SENTRY_DSN_KEY : "",
+  dsn: process.env.NEXT_PUBLIC_SENTRY_DSN_KEY,
   environment: process.env.NODE_ENV,
   tracesSampleRate: 1.0,
   beforeSend: (event, hint) => sendErrorMessage(event, hint),
