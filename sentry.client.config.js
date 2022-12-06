@@ -12,13 +12,12 @@ Sentry.init({
 });
 
 const sendErrorMessage = (event, hint) => {
-  let errorMsg = "Sentry error hook";
   console.log(event);
   console.log(hint);
 
+  const errorUrl = event.request.url;
   const hintMsg = hint.originalException || hint.syntheticException;
-  errorMsg = `[Error]: \n
-  >>> Message: ${hintMsg.message}\n`;
+  const errorMsg = `Alert triggered: ${hintMsg.stack}\n at ${errorUrl}`;
 
   const body = {
     chat_id: "5040460573",
@@ -32,11 +31,6 @@ const sendErrorMessage = (event, hint) => {
       "Content-Type": "application/json;charset=UTF-8",
     },
     data: body,
-  }).then(() => {
-    console.log(
-      "Error logged!",
-      hint.originalException || hint.syntheticException
-    );
   });
 
   return event;

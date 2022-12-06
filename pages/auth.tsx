@@ -24,24 +24,10 @@ const Auth = () => {
       <button onClick={login}>Login</button>
       <button
         onClick={() => {
-          throw new Error("Provided Error");
+          throw new Error("Test Error");
         }}
       >
-        Provide Error
-      </button>
-      <button
-        onClick={() => {
-          throw new Error("Another Error");
-        }}
-      >
-        Another Error
-      </button>
-      <button
-        onClick={() => {
-          throw new Error("Another Another Error");
-        }}
-      >
-        Another Another Error
+        Test Error
       </button>
     </div>
   );
