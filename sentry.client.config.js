@@ -4,8 +4,7 @@ import axios from "axios";
 const isProduction = process.env.NODE_ENV === "production";
 
 Sentry.init({
-  // dsn: isProduction ? process.env.NEXT_PUBLIC_SENTRY_DSN_KEY : "",
-  dsn: process.env.NEXT_PUBLIC_SENTRY_DSN_KEY,
+  dsn: isProduction ? process.env.NEXT_PUBLIC_SENTRY_DSN_KEY : "",
   environment: process.env.NODE_ENV,
   tracesSampleRate: 1.0,
   beforeSend: (event, hint) => sendErrorMessage(event, hint),
@@ -16,8 +15,7 @@ const sendErrorMessage = (event, hint) => {
   console.log(hint);
 
   const errorUrl = event.request.url;
-  const hintMsg = hint.originalException || hint.syntheticException;
-  const errorMsg = `Alert triggered: ${hintMsg.stack}\n at ${errorUrl}`;
+  const errorMsg = `📍 URL: ${errorUrl} \n 🧷 https://sentry.io/organizations/pixel-bf/issues/?project=4504256997031936&referrer=sidebar`;
 
   const body = {
     chat_id: "5040460573",
